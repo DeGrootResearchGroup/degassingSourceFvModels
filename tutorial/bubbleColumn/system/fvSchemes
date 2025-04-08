@@ -29,16 +29,21 @@ divSchemes
     default                         none;
 
     div(phi,alpha.air)              Gauss vanLeer;
-    div(phir,alpha.air)             Gauss vanLeer;
+    div(phi,alpha.water)            Gauss vanLeer;
+    div(phir,alpha.water,alpha.air) Gauss vanLeer;
+    div(phir,alpha.air,alpha.water) Gauss vanLeer;
 
-    "div\(alphaRhoPhi.*,U.*\)"      Gauss limitedLinearV 1;
-    "div\(phi.*,U.*\)"              Gauss limitedLinearV 1;
+    div(alphaRhoPhi,U)      Gauss limitedLinearV 1;
+    div(phi,U)              Gauss limitedLinearV 1;
 
-    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;
-    "div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;
-    "div\(alphaPhi.*,p\)"           Gauss limitedLinear 1;
+    "div\(alphaRhoPhi,(h|e)\)"  Gauss limitedLinear 1;
+    div(alphaRhoPhi,K)      Gauss limitedLinear 1;
+    div(alphaRhoPhi,(p|rho)) Gauss limitedLinear 1;
 
-    "div\(\(\(\(alpha.*\*thermo:rho.*\)*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
+    "div\(alphaRhoPhi,(k|epsilon)\)"  Gauss limitedLinear 1;
+    "div\(phim,(k|epsilon)m\)"      Gauss limitedLinear 1;
+
+    div((((alpha*rho)*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 
 laplacianSchemes
