@@ -19,17 +19,16 @@ degassingMassSource
     type            coded;
     active          yes;
     selectionMode   all;
-
     name            degassingMassSource;
+
     patches         (outlet);
-    rhoName         thermo:rho.air;
+    rhoName         rho.air;
     alphaName       alpha.air;
+    field           rho.air;
 
     codedSourceCoeffs
     {
         selectionMode   all;
-
-        fields          (thermo:rho.air);
 
         codeInclude
         #{
@@ -110,18 +109,17 @@ degassingForce
     type            coded;
     active          yes;
     selectionMode   all;
+    name           degassingForce;
 
-    name            degassingForce;
     patches         (outlet);
-    rhoName         thermo:rho.air;
+    rhoName         rho.air;
     alphaName       alpha.air;
     UName           U.air;
+    field           U.air;
 
     codedSourceCoeffs
     {
         selectionMode   all;
-
-        fields          (U.air);
 
         codeInclude
         #{
