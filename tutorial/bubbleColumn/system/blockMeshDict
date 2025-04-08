@@ -37,7 +37,12 @@ edges
 (
 );
 
-patches
+defaultPatch
+{
+    type empty;
+}
+
+boundary
 (
     inlet
     {
