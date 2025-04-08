@@ -25,7 +25,7 @@ degassingMassSource
     rhoName         thermo:rho.air;
     alphaName       alpha.air;
 
-    scalarCodedSourceCoeffs
+    codedSourceCoeffs
     {
         selectionMode   all;
 
@@ -117,7 +117,7 @@ degassingForce
     alphaName       alpha.air;
     UName           U.air;
 
-    vectorCodedSourceCoeffs
+    codedSourceCoeffs
     {
         selectionMode   all;
 
