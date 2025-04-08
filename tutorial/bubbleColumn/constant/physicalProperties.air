@@ -2,16 +2,15 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  6
+    \\  /    A nd           | Version:  12
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      thermophysicalProperties.water;
+    object      physicalProperties.air;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -21,7 +20,7 @@ thermoType
     mixture         pureMixture;
     transport       const;
     thermo          hConst;
-    equationOfState perfectFluid;
+    equationOfState perfectGas;
     specie          specie;
     energy          sensibleInternalEnergy;
 }
@@ -30,22 +29,17 @@ mixture
 {
     specie
     {
-        molWeight   18;
-    }
-    equationOfState
-    {
-        R           3000;
-        rho0        1027;
+        molWeight   28.9;
     }
     thermodynamics
     {
-        Cp          4195;
+        Cp          1007;
         Hf          0;
     }
     transport
     {
-        mu          3.645e-4;
-        Pr          2.289;
+        mu          1.84e-05;
+        Pr          0.7;
     }
 }
 

@@ -15,7 +15,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     reactingTwoPhaseEulerFoam;
+application     foamRun;
+
+solver          multiphaseEuler;
 
 startFrom       startTime;
 
